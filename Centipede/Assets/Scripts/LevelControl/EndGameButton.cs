@@ -29,9 +29,8 @@ public class EndGameButton : MonoBehaviour {
 	{
 		GameObject.Find("GameLevelControl").GetComponent<GameLevelControl>().EndLevel(false);
 		
-		Debug.Log(StatsControl.playerName);
 		
 		int endScore = (int)ScoreKeeper.GetScore();
-		GameObject.Find("HighScoreControl").GetComponent<HighScoreControl>().EnterHighScore(StatsControl.playerName , endScore ,StatsControl.bullets, StatsControl.mushrooms, StatsControl.pedes );
+		GameObject.Find("HighScoreControl").GetComponent<HighScoreControl>().EnterHighScore(endScore);
 	}
 }

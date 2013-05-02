@@ -28,8 +28,6 @@ public class MainMenu : MonoBehaviour {
 		
 		if( GUILayout.Button("Play"))
 		{
-			StatsControl.hasEnteredName = false;
-			
 			OpenLevel("GameScene");
 		}
 		GUILayout.Label("");

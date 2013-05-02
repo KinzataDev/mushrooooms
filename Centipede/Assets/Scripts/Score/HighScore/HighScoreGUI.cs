@@ -8,13 +8,9 @@ public class HighScoreGUI : MonoBehaviour {
 	public GUISkin menuSkin;
 	public float areaWidth;
 	public float areaHeight;
+
 	
-	private bool dataRetrieved = false;
-	
-	private ScoreData[] data;
-	private StatData statData;
-	
-	// private string highScoreString = "highscorepos";
+	 private string highScoreString = "highscorepos";
 	
 	void Start()
 	{
@@ -23,15 +19,6 @@ public class HighScoreGUI : MonoBehaviour {
 	
 	void OnGUI()
 	{
-		
-		if( !dataRetrieved )
-		{
-			WWWScore scoreRequest = GameObject.Find("WWWScore").GetComponent<WWWScore>();
-			data = scoreRequest.getTopTenHighScores();
-			statData = scoreRequest.getTotalStats();
-			dataRetrieved = true;
-		}
-		
 		GUI.skin = menuSkin;
 		
 		float ScreenX = ((Screen.width * 0.5f) - (areaWidth * 0.5f));
@@ -40,24 +27,12 @@ public class HighScoreGUI : MonoBehaviour {
 		GUILayout.BeginArea( new Rect(ScreenX,ScreenY, areaWidth, areaHeight));
 		
 		
-//		
-		for( int i = 0; i < data.Length; i++ )
+		for( int i = 1; i <= numHighScores; i++ )
 		{
-			GUILayout.Box("Position " +(i+1)+ ":" + data[i].Name +" : "+ data[i].Score);
+			GUILayout.Box("Position " +i+ ":" + PlayerPrefs.GetInt(highScoreString+i), menuSkin.GetStyle("Box"));
 		}
 		
-//		for( int i = 1; i <= numHighScores; i++ )
-//		{
-//			GUILayout.Box("Position " +i+ ":" + PlayerPrefs.GetInt(highScoreString+i), menuSkin.GetStyle("Box"));
-//		}
-		
-		GUILayout.Label(" ");
-		
-		
-		
-		GUILayout.Box("Games: " + statData.games + "  Bullets Fired: " + statData.mushrooms + "  Mushrooms Squashed: " + statData.bullets + "  Pedes Killed: " + statData.pedes);
-		
-		GUILayout.Label(" ");
+
 		
 		if( GUILayout.Button("Back"))
 		{

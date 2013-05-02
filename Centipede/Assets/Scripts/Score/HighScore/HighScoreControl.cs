@@ -7,7 +7,7 @@ public class HighScoreControl : MonoBehaviour {
 	public int numHighScores = 10;
 	
 	private int tempScore;
-//	private string highScoreString = "highscorepos";
+	private string highScoreString = "highscorepos";
 	
 	public HighScoreGUI gui;
 	
@@ -23,21 +23,20 @@ public class HighScoreControl : MonoBehaviour {
 		}
 	}
 	
-	public void EnterHighScore(string playerName, int newScore, int bullets, int mushrooms, int pedes)
+	public void EnterHighScore(int newScore)
 	{
-		WWWScore scoreRequest = GameObject.Find("WWWScore").GetComponent<WWWScore>();
-		scoreRequest.postHighScore(playerName, newScore, bullets, mushrooms, pedes);
 		
-//		// Check high score
-//		for( int i = 1; i <= numHighScores; i++ )
-//		{
-//			if( PlayerPrefs.GetInt(highScoreString+i) < newScore )
-//			{
-//				tempScore = PlayerPrefs.GetInt(highScoreString+i);
-//				PlayerPrefs.SetInt(highScoreString+i, newScore);
-//				newScore = tempScore;
-//			}
-//		}
+		
+		// Check high score
+		for( int i = 1; i <= numHighScores; i++ )
+		{
+			if( PlayerPrefs.GetInt(highScoreString+i) < newScore )
+			{
+				tempScore = PlayerPrefs.GetInt(highScoreString+i);
+				PlayerPrefs.SetInt(highScoreString+i, newScore);
+				newScore = tempScore;
+			}
+		}
 	}
 	
 	public void SetGuiOn(bool isOn)

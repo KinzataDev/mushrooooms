@@ -23,14 +23,6 @@ public class Health : MonoBehaviour {
 			health -= amount;
 			if( health <= 0 )
 			{
-				if(gameObject.name == "Mushroom")
-				{
-					StatsControl.mushrooms++;
-				}
-				else if( gameObject.name == "Centipede")
-				{
-					StatsControl.pedes++;
-				}
 				Destroy(gameObject);
 			}
 		}

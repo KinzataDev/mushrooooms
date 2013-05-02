@@ -18,7 +18,6 @@ public class StartRoundButton : MonoBehaviour {
 		
 		if( GUILayout.Button("Start Round"))
 		{
-			StatsControl.hasEnteredName = true;
 			GameLevelControl control = GameObject.Find("GameLevelControl").GetComponent<GameLevelControl>();
 			control.BeginLevel();
 		}

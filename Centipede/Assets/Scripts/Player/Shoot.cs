@@ -55,7 +55,6 @@ public class Shoot : MonoBehaviour {
 		{
 			for( int i = 0; i < numBullets; i++ )
 			{
-				StatsControl.bullets++;
 				if( i == numBullets * 0.5f )
 				{
 					fireAngle += bulletAngleIncrement;
@@ -76,7 +75,6 @@ public class Shoot : MonoBehaviour {
 		{
 			for( int i = 0; i < numBullets; i++ )
 			{
-				StatsControl.bullets++;
 				// Calculate angle of instantiation
 				float angleInRadians = fireAngle * Mathf.PI / 180;
 				float x = Mathf.Sin(angleInRadians) * bulletSpeed;

@@ -165,7 +165,7 @@ public class GameLevelControl : MonoBehaviour {
 		EndLevel(false);
 		
 		int endScore = (int)ScoreKeeper.GetScore();
-		GameObject.Find("HighScoreControl").GetComponent<HighScoreControl>().EnterHighScore(StatsControl.playerName ,endScore ,StatsControl.bullets, StatsControl.mushrooms, StatsControl.pedes );
+		GameObject.Find("HighScoreControl").GetComponent<HighScoreControl>().EnterHighScore(endScore);
 		
 		Application.LoadLevel("HighScoreScene");
 	}
