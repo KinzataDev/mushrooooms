@@ -28,7 +28,7 @@ public class RandomRangedVelocity : MonoBehaviour {
 		
 		if( changeTimer >= currentChangeTime )
 		{
-			Vector3 newVelocity = Vector3.zero;
+			Vector3 newVelocity = gameObject.rigidbody.velocity;
 			if( randomizeX )
 			{	
 				float x = randomizeMaxMin();
