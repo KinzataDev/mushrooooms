@@ -12,8 +12,11 @@ public class OnCreateMushroom : MonoBehaviour {
 		gameObject.renderer.material.color = new Color(r,g,b,1);
 		
 		float y = Random.Range(0, 360);
-		transform.RotateAroundLocal(new Vector3(0,1,0), y);
+		transform.RotateAround(new Vector3(0,1,0), y);
 		transform.RotateAround(new Vector3(1,0,0), 125);
+		Vector3 pos = transform.position;
+		pos.y -= 0.5f;
+		transform.position = pos;
 		
 	}
 }
