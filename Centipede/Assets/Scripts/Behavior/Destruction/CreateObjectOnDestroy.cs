@@ -16,7 +16,7 @@ public class CreateObjectOnDestroy : MonoBehaviour {
 		GameObject parentObj = GameObject.Find("GameLevelControl");
 		if( parentObj && parentObj.GetComponent<GameLevelControl>().currentState == GameLevelControl.State.Running)
 		{
-			GameObject newObj = Instantiate(CreatedObject, transform.position, Quaternion.AngleAxis(180, new Vector3(0,0,1))) as GameObject;
+			GameObject newObj = Instantiate(CreatedObject, transform.position, Quaternion.identity) as GameObject;
 			newObj.name = CreatedObject.name;
 		}
 	}

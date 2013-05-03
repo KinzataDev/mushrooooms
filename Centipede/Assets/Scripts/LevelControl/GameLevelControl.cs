@@ -12,6 +12,7 @@ public class GameLevelControl : MonoBehaviour {
 	public MushroomSpawner shroomSpawner;
 	public CentipedeSpawner pedeSpawner;
 	public PlayerSpawner playerSpawner;
+	public DestroyerSpawner destroyerSpawner;
 	
 	public float mushroomSpawnRateDecrease = 0.1f;
 	public float pedeSpawnRateDecrease = 0.1f;
@@ -70,6 +71,7 @@ public class GameLevelControl : MonoBehaviour {
 			// Start spawners
 			shroomSpawner.spawning = true;
 			pedeSpawner.spawning = true;
+			destroyerSpawner.spawning = true;
 			
 			// Unlock player weapons
 			Shoot playerGun = GameObject.Find("Player").transform.FindChild("Shooter").GetComponent<Shoot>();
@@ -87,6 +89,7 @@ public class GameLevelControl : MonoBehaviour {
 		// Stop spawners
 		shroomSpawner.spawning = false;
 		pedeSpawner.spawning = false;
+		destroyerSpawner.spawning = false;
 		
 		// Lock player gun
 		GameObject player = GameObject.Find("Player");
@@ -127,6 +130,7 @@ public class GameLevelControl : MonoBehaviour {
 		}
 		
 		playerSpawner.SpawnPlayer();
+		
 		
 	}
 	

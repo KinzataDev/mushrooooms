@@ -75,7 +75,7 @@ public class MushroomSpawner : MonoBehaviour {
 						
 						if(!Physics.CheckSphere(point, radius) )//hits.Length == 0 )
 						{
-							GameObject newObj = Instantiate(shroom, point, Quaternion.AngleAxis(180, new Vector3(0,0,1))) as GameObject;
+							GameObject newObj = Instantiate(shroom, point, Quaternion.identity) as GameObject;
 							newObj.name = shroom.name;
 							attempt = maxSpawnAttempts;
 						}
