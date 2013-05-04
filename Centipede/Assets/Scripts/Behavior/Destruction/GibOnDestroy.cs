@@ -7,17 +7,19 @@ public class GibOnDestroy : MonoBehaviour {
 	
 	void OnDestroy()
 	{	
-		Debug.Log("Gibbing player");
+		
 		if( !gibOffScreen )
 		{
-			if( true ) // can't use invisible check here!!!  Obj is already being destroyed
+			Vector3 pos = Camera.mainCamera.WorldToViewportPoint(transform.position);
+			if( pos.x >= 0 && pos.x <= 1 && pos.y >= 0 && pos.y <= 1) // can't use invisible check here!!!  Obj is already being destroyed
 			{
-				gameObject.GetComponentInChildren<Gibber>().Gib();
+				Debug.Log("Gibbing player");
+				transform.FindChild("Gibber").GetComponent<Gibber>().Gib();
 			}
 		}
 		else
 		{
-			gameObject.GetComponentInChildren<Gibber>().Gib();
+			transform.FindChild("Gibber").GetComponent<Gibber>().Gib();
 		}
 	}
 }
