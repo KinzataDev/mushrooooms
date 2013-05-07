@@ -19,6 +19,7 @@ public class StartRoundButton : MonoBehaviour {
 		if( GUILayout.Button("Start Round"))
 		{
 			GameLevelControl control = GameObject.Find("GameLevelControl").GetComponent<GameLevelControl>();
+			audio.Play();
 			control.BeginLevel();
 		}
 		

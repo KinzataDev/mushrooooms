@@ -1,12 +1,12 @@
 using UnityEngine;
 using System.Collections;
 
-public class CreateObjectOnDestroy : MonoBehaviour {
+public class CreateObjectOnKill : MonoBehaviour {
 	
 	public GameObject CreatedObject;
 	public bool isEnabled = true;
 
-	void OnDestroy()
+	void OnKill()
 	{
 		if( !isEnabled )
 		{

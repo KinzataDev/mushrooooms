@@ -1,11 +1,11 @@
 using UnityEngine;
 using System.Collections;
 
-public class AddScoreOnDestroy : MonoBehaviour {
+public class AddScoreOnKill : MonoBehaviour {
 	
 	public int scoreWorth = 0;
 	
-	void OnDestroy()
+	void OnKill()
 	{
 		if( GameObject.Find("GameLevelControl").GetComponent<GameLevelControl>().currentState == GameLevelControl.State.Running )
 		{

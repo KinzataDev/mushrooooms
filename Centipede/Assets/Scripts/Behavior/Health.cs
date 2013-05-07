@@ -23,7 +23,7 @@ public class Health : MonoBehaviour {
 			health -= amount;
 			if( health <= 0 )
 			{
-				Destroy(gameObject);
+				gameObject.SendMessage("OnKill");
 			}
 		}
 	}

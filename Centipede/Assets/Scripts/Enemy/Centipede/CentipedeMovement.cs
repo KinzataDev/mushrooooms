@@ -63,11 +63,11 @@ public class CentipedeMovement : MonoBehaviour {
 				}
 			}
 			
-			CreateObjectOnDestroy destroyScript = gameObject.GetComponent<CreateObjectOnDestroy>();
-			destroyScript.isEnabled = false;
+//			CreateObjectOnDestroy destroyScript = gameObject.GetComponent<CreateObjectOnDestroy>();
+//			destroyScript.isEnabled = false;
 			
 			ScoreObjectSpawner scoreScript = gameObject.GetComponent<ScoreObjectSpawner>();
-			scoreScript.scoreOnDestroy = -lossOfPoints;
+			scoreScript.scoreOnKill = -lossOfPoints;
 			
 			Destroy(gameObject);
 		}

@@ -7,7 +7,7 @@ public class ScoreObjectSpawner : MonoBehaviour {
 	public GameObject scoreObject;
 	
 	public int scoreOnHit = 0;
-	public int scoreOnDestroy = 0;
+	public int scoreOnKill = 0;
 	
 	void OnCollisionEnter(Collision hit)
 	{
@@ -28,16 +28,16 @@ public class ScoreObjectSpawner : MonoBehaviour {
 		}
 	}
 	
-	void OnDestroy()
+	void OnKill()
 	{
-		if( scoreOnDestroy != 0 )
+		if( scoreOnKill != 0 )
 		{
 			GameObject parentObj = GameObject.Find("GameLevelControl");
 			if( parentObj && parentObj.GetComponent<GameLevelControl>().currentState == GameLevelControl.State.Running )
 			{
-				ScoreKeeper.AddScore(scoreOnDestroy);	
+				ScoreKeeper.AddScore(scoreOnKill);	
 				GameObject obj = Instantiate(scoreObject, gameObject.transform.position, Quaternion.identity) as GameObject;
-				obj.GetComponent<TextMesh>().text = scoreOnDestroy.ToString();
+				obj.GetComponent<TextMesh>().text = scoreOnKill.ToString();
 			}	
 		}
 	}

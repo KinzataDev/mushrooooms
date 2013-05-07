@@ -18,9 +18,9 @@ public class LoseHealthOnBulletCollision : MonoBehaviour {
 	
 	void OnCollisionEnter(Collision hit)
 	{
-		Debug.Log("hit");
 		if( hit.gameObject.name == "Bullet" )
 		{
+			Debug.Log("hit");
 			gameObject.SendMessage("TakeDamage", bulletDamage);
 		}
 	}

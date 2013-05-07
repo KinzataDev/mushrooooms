@@ -1,9 +1,9 @@
 using UnityEngine;
 using System.Collections;
 
-public class LoseLifeOnDestroy : MonoBehaviour {
+public class LoseLifeOnKill : MonoBehaviour {
 
-	void OnDestroy()
+	void OnKill()
 	{
 		PlayerLifeKeeper.PlayerDied();
 	}

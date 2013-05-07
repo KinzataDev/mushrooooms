@@ -11,7 +11,7 @@ public class Destroyer : MonoBehaviour {
 	{
 		if( hit.gameObject.name == "Mushroom")
 		{
-			Destroy(hit.gameObject);
+			hit.gameObject.SendMessage("OnKill");
 		}
 		
 	}

@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class DestroyOnCollisionWithObjects : MonoBehaviour {
+public class KillOnCollisionWithObjects : MonoBehaviour {
 	
 	public GameObject[] Objects;
 	
@@ -11,7 +11,7 @@ public class DestroyOnCollisionWithObjects : MonoBehaviour {
 		{
 			if( hit.gameObject.name == obj.gameObject.name )
 			{
-				Destroy(gameObject);
+				gameObject.SendMessage("OnKill");
 			}
 		}
 	}
