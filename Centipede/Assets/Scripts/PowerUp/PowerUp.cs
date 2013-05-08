@@ -7,7 +7,14 @@ public class PowerUp : MonoBehaviour {
 	public GameObject player;
 	public float timeToDespawn;
 	
+	public AudioClip clip;
+	
 	private float currentTimeLive = 0;
+	
+	void Start()
+	{
+		GameObject.Find("AudioPlayer").audio.PlayOneShot(clip);
+	}
 	
 	void OnCollisionEnter(Collision hit)
 	{
