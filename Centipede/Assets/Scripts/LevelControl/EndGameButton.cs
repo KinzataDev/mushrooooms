@@ -29,8 +29,9 @@ public class EndGameButton : MonoBehaviour {
 	{
 		GameObject.Find("GameLevelControl").GetComponent<GameLevelControl>().EndLevel(false);
 		
-		
 		int endScore = (int)ScoreKeeper.GetScore();
 		GameObject.Find("HighScoreControl").GetComponent<HighScoreControl>().EnterHighScore(endScore);
+		
+		Time.timeScale = 1.0f;
 	}
 }

@@ -4,6 +4,7 @@ using System.Collections;
 public class MushroomSpawner : MonoBehaviour {
 	
 	public GameObject shroom;
+	public GameObject effect;
 	
 	public float width = 1;
 	public float height = 1;
@@ -75,14 +76,23 @@ public class MushroomSpawner : MonoBehaviour {
 						
 						if(!Physics.CheckSphere(point, radius) )//hits.Length == 0 )
 						{
-							GameObject newObj = Instantiate(shroom, point, Quaternion.identity) as GameObject;
-							newObj.name = shroom.name;
+							StartCoroutine("InstantiateShroom", point);
+							point.z -= 1;
+							Instantiate(effect, point, Quaternion.identity);
 							attempt = maxSpawnAttempts;
 						}
 					}
 				}	
 			}
 		}
+	}
+	
+	IEnumerator InstantiateShroom(Vector3 point)
+	{
+		yield return new WaitForSeconds(1.5f);
+		
+		GameObject newObj = Instantiate(shroom, point, Quaternion.identity) as GameObject;
+		newObj.name = shroom.name;
 	}
 	
 	void OnDrawGizmos()

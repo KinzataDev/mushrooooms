@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class MainMenu : MonoBehaviour {
+public class MainMenu : FadeInGUI {
 	
 	public GUISkin menuSkin;
 	public float areaWidth;
@@ -17,18 +17,20 @@ public class MainMenu : MonoBehaviour {
 	
 	}
 	
-	void OnGUI()
+	new void OnGUI()
 	{
+		base.OnGUI();
+		
 		GUI.skin = menuSkin;
 		
 		float ScreenX = ((Screen.width * 0.5f) - (areaWidth * 0.5f));
 		float ScreenY = ((Screen.height * 0.5f) - (areaHeight * 0.5f));
 		
-		GUILayout.BeginArea( new Rect(ScreenX,ScreenY, areaWidth, areaHeight));
+		GUILayout.BeginArea( new Rect(ScreenX,ScreenY + 200, areaWidth, areaHeight));
 		
 		if( GUILayout.Button("Play"))
 		{
-			OpenLevel("GameScene");
+			GameObject.Find("AlphaMap").GetComponent<FadeOutScene>().FadeOut("GameScene");
 		}
 		GUILayout.Label("");
 		if( GUILayout.Button("High Scores"))

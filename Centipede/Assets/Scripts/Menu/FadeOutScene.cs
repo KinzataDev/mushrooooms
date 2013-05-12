@@ -6,13 +6,15 @@ public class FadeOutScene : MonoBehaviour {
 	public float fadeInTime = 4;
 	private float currentFadeInTime = 0;
 	
+	public float maxAlpha = 0f;
+	
 	private bool fadeOut = false;
 	private string levelToLoad;
 	
 	// Use this for initialization
 	void Start () {
 		Color col = guiTexture.color;
-		col.a = 0;
+		col.a = maxAlpha;
 		guiTexture.color = col;
 	}
 	
@@ -25,7 +27,13 @@ public class FadeOutScene : MonoBehaviour {
 			{
 				currentFadeInTime += Time.deltaTime;
 				Color col = guiTexture.color;
-				col.a = currentFadeInTime / fadeInTime;
+				col.a = (currentFadeInTime / fadeInTime) + maxAlpha;
+				
+				if( col.a <= maxAlpha )
+				{
+					col.a = maxAlpha;
+				}
+				
 				guiTexture.color = col;
 				
 				if( col.a >= 1)
